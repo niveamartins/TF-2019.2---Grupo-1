@@ -20,6 +20,26 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
+  },
+  {
+      title: 'Entrar',
+      url: '/login',
+      icon: 'bookmark'
+  },
+    {
+        title: 'Registrar',
+        url: '/register',
+        icon: 'book'
+    },
+    {
+        title: 'Post',
+        url: '/post',
+        icon: 'document'
+    },
+    {
+        title: 'Criar',
+        url: 'create',
+        icon: 'add-circle'
     }
   ];
 
