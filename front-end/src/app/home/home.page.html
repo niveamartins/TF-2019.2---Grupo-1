@@ -14,48 +14,29 @@
     <ion-text color="secondary" class="ion-text-center">
         <h1>O que vamos ler hoje?</h1>
     </ion-text>
-    <div class="whatsNew">
-        <app-whats-new></app-whats-new>
-    </div>
-    <ion-card class="welcome-card">
-        <ion-card-header>
-            <ion-card-subtitle>Get Started</ion-card-subtitle>
-            <ion-card-title>Welcome to Ionic</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-        </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
 
-        <ion-item href="https://ionicframework.com/docs/">
-            <ion-icon slot="start" color="medium" name="book"></ion-icon>
+    <app-whats-new></app-whats-new>
+
+    <ion-list lines="none">
+        <ion-item *ngFor="let homeList of homeLists">
+            <ion-thumbnail slot="start">
+                <ion-img src="https://www.woodlandtrust.org.uk/media/100078482/Sycamore01.jpg?cb=-11897985&preset=gallery-tab-main-image" alt="thumbnail do post"></ion-img>
+            </ion-thumbnail>
             <ion-label>
-                <h2>Título do Post</h2>
-                <p>Descrição do Post</p>
-            </ion-label>
-        </ion-item>
-        <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-            <ion-icon slot="start" color="medium" name="build"></ion-icon>
-            <ion-label>
-                <h2>Título do Post</h2>
-                <p>Descrição do Post</p>
-            </ion-label>
-        </ion-item>
-        <ion-item href="https://ionicframework.com/docs/layout/structure">
-            <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-            <ion-label>
-                <h2>Título do Post</h2>
-                <p>Descrição do Post</p>
-            </ion-label>
-        </ion-item>
-        <ion-item href="https://ionicframework.com/docs/theming/basics">
-            <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-            <ion-label>
-                <h2>Título do Post</h2>
-                <p>Descrição do Post</p>
+                <h2>{{ homeList.title }}</h2>
+                <p>{{ homeList.subtitle }}</p>
             </ion-label>
         </ion-item>
     </ion-list>
-    <app-fab></app-fab>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <a routerLink="/create">
+            <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </a>
+    </ion-fab>
+
+
+
 </ion-content>

@@ -1,4 +1,26 @@
 ion-card {
     height: 25vh;
+    max-width: 60vw;
     --background: #fff;
+}
+
+.whatsNew {
+    color: #fff;
+    background-color: #038C8C;
+}
+
+ion-thumbnail {
+    --border-radius: 10px;
+}
+
+.textTitle {
+    padding-left: 20px;
+    padding-top: 1px;
+    font-weight: bold;
+}
+
+.line {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 2px solid white;
 }

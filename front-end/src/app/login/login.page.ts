@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -7,16 +9,33 @@ import { FormGroup, FormBuilder } from '@angular/forms';
     styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-    public login: FormGroup;
 
-    constructor(public loginForm: FormBuilder) {
-        this.login = this.loginForm.group({
-            'user': [''],
-            'password': ['']
+    public loginForm: FormGroup;
+
+    constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router) {
+
+        this.loginForm = this.formbuilder.group({
+            'user': ['', [Validators.required]],
+            'password': ['', [Validators.required]]
         });
+
     }
 
     ngOnInit() {
     }
 
+    loginUser(form) {
+
+        if (form.status == "VALID") {
+
+            this.authservice.loginUser(form.value).subscribe(
+                (res) => {
+                    console.log(res.message);
+                    localStorage.setItem('userToken', res.data.token);
+                    this.router.navigate(['home']);
+                }
+            );
+        }
+
+    }
 }
