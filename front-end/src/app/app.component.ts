@@ -22,6 +22,11 @@ export class AppComponent {
       icon: 'list'
     },
     {
+      title: 'Criar post',
+      url: '/create-post',
+      icon: 'list'
+    },
+    {
       title: 'Post',
       url: '/post',
       icon: 'list'

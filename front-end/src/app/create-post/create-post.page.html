@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Criar Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--não abre a galeria ainda-->
+  <ion-button (click)="openGallery()" shape="round">
+       <ion-icon name="photos"></ion-icon>
+       <ion-label> Selecione a Foto.</ion-label>
+
+  </ion-button>
+
+   <form [formGroup]= "createPost" (ngSubmit)="submitPost(createPost)">
+
+      <ion-item>
+          <ion-label position="floating">Título do Post</ion-label>
+          <ion-input required type="text" formControlName="titulo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Texto do Post</ion-label>
+          <ion-textarea formControlName="texto"></ion-textarea>
+      </ion-item>
+
+      <ion-button type="submit" [disabled]="!createPost.valid">Postar</ion-button>
+
+
+  </form>
+
+
+
+
+</ion-content>
