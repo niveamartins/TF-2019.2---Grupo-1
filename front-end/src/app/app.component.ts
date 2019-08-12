@@ -35,7 +35,19 @@ export class AppComponent {
       title: 'Post',
       url: '/post',
       icon: 'list'
-    }
+    },
+    {
+        title: 'Entrar',
+        url: '/login',
+        icon: 'bookmark'
+    },
+      {
+          title: 'Registrar',
+          url: '/register',
+          icon: 'book'
+      }
+
+
   ];
 
   constructor(

@@ -1,5 +1,5 @@
 {
-  "name": "front-end",
+  "name": "teste",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -27,9 +27,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic-native/transfer": "^3.14.0",
     "@ionic/angular": "^4.7.1",
-    "cordova-plugin-camera": "4.1.0",
-    "cordova-plugin-file-transfer": "1.7.1",
-    "cordova-plugin-photo-library": "2.2.1",
+    "cordova-plugin-camera": "^4.1.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -64,9 +62,13 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
+<<<<<<< HEAD
       "cordova-plugin-camera": {},
       "cordova-plugin-photo-library": {},
       "cordova-plugin-file-transfer": {}
+=======
+      "cordova-plugin-camera": {}
+>>>>>>> origin/teste_filipe
     }
   }
 }

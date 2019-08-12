@@ -1,0 +1,15 @@
+<div class="whatsNew">
+    <div class="textTitle">
+        <h2>New</h2>
+    </div>
+    <div class="line"></div>
+    <ion-row>
+        <ion-slides pager="true" [options]="slideOpts">
+            <ion-slide *ngFor="let homeNew of homeNews">
+                <ion-card>
+                    <ion-img src="https://www.woodlandtrust.org.uk/media/100078482/Sycamore01.jpg?cb=-11897985&preset=gallery-tab-main-image" alt="thumbnail do card"></ion-img>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </ion-row>
+</div>

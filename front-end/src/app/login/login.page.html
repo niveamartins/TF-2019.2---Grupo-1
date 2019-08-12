@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Login
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="center">
+
+        <form [formGroup]="login">
+
+            <ion-item>
+                <ion-label position="stacked" class="label">Usuário / E-mail</ion-label>
+                <ion-input required type="text" formControlName="user"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="stacked" class="label">Senha</ion-label>
+                <ion-input required type="text" formControlName="password"></ion-input>
+            </ion-item>
+            <div class="ion-padding"></div>
+
+            <div class="ion-padding">
+                <ion-row class="ion-justify-content-center">
+                    <ion-button mode="ios" shape="round" type="submit" class="ion-no-margin">Entrar</ion-button>
+                </ion-row>
+            </div>
+
+            <div class="ion-padding">
+                <ion-row class="ion-justify-content-center ion-align-content-end">
+                    <ion-text color="secondary">Não tem conta? <ion-text routerLinkActive="active"><a routerLink="/register">Cadastre-se</a></ion-text>
+                    </ion-text>
+                </ion-row>
+            </div>
+
+
+                <ion-row class="ion-justify-content-center ion-align-content-end">
+                    <ion-text color="secondary">Esqueceu sua senha? <ion-text>Clique aqui</ion-text>
+                    </ion-text>
+                </ion-row>
+
+
+        </form>
+
+    </div>
+
+</ion-content>
