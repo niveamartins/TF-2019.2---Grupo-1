@@ -7,6 +7,25 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+        homeLists = [
+            {
+                'title': "Título do Post",
+                'subtitle': "Descrição do Post"
+            },
+            {
+                'title': "Título do Post",
+                'subtitle': "Descrição do Post"
+            },
+            {
+                'title': "Título do Post",
+                'subtitle': "Descrição do Post"
+            },
+            {
+                'title': "Título do Post",
+                'subtitle': "Descrição do Post"
+            }
+        ]
+
   constructor() {}
 
 }

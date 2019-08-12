@@ -7,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhatsNewComponent implements OnInit {
 
-    cards: Array<string> = [
-        'Post 1',
-        'Post 2',
-        'Post 3',
-        'Post 4'
+    homeNews = [
+        {
+            'title': 'Post 1'
+        },
+        {
+            'title': 'Post 2'
+        },
+        {
+            'title': 'Post 3'
+        },
+        {
+            'title': 'Post 4'
+        }
     ];
 
   constructor() { }

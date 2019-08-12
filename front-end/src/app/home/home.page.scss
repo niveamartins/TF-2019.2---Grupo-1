@@ -1,9 +1,25 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
-}
-
 .whatsNew {
     color: #fff;
-    background-color: #025959;
+    background-color: #038C8C;
+    margin-bottom: 10px;
+}
+
+ion-thumbnail {
+    --border-radius: 10px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ion-item {
+    height: 80px;
+}
+
+ion-list {
+    margin-left: 10px;
 }

@@ -1,13 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Post
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Post
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
-<app-fab></app-fab>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <a routerLink="/create">
+            <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </a>
+    </ion-fab>
 </ion-content>
