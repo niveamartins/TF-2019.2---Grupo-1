@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img [src]="{{ ImageUser }}"></ion-img>
+  <ion-text><h3>{{ Username }}</h3></ion-text>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label>E-mail</ion-label>
+      <ion-text>{{ EmailUser }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Meus Posts</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
