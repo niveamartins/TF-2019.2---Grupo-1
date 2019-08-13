@@ -25,8 +25,20 @@ a {
 
 ion-item {
     height: 80px;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    border-bottom: 1px solid #808080;
 }
 
 ion-list {
     margin-left: 10px;
+}
+
+.title-list {
+    display: block;
+    font-size: 3vh;
+    font-family: 'Roboto' sans-serif;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
