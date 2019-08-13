@@ -13,31 +13,32 @@
 
     <div class="center">
 
-        <form [formGroup]="registerForm">
+        <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
+
 
             <ion-item>
                 <ion-label position="stacked" class="label">Nome</ion-label>
-                <ion-input placeholder="Digite seu nome" required type="text" formControlName="name"></ion-input>
+                <ion-input placeholder="Digite seu nome" type="text" formControlName="name"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="stacked" class="label">E-mail</ion-label>
-                <ion-input placeholder="Digite seu e-mail" required type="text" formControlName="email"></ion-input>
+                <ion-input placeholder="Digite seu e-mail" type="text" formControlName="email"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="stacked" class="label">Usuário</ion-label>
-                <ion-input placeholder="Digite o nome de usuário" required type="text" formControlName="user"></ion-input>
+                <ion-input placeholder="Digite o nome de usuário" type="text" formControlName="user"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="stacked" class="label">Senha</ion-label>
-                <ion-input placeholder="Digite sua senha" required type="text" formControlName="password"></ion-input>
+                <ion-input placeholder="Digite sua senha" type="text" formControlName="password"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="stacked" class="label">Confirmar Senha</ion-label>
-                <ion-input placeholder="Confirme sua senha" required type="text" formControlName="c_password"></ion-input>
+                <ion-input placeholder="Confirme sua senha" type="text" formControlName="c_password"></ion-input>
             </ion-item>
 
             <div class="ion-padding"></div>

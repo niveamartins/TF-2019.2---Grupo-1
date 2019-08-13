@@ -16,11 +16,11 @@ export class RegisterPage implements OnInit {
     constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router) {
 
         this.registerForm = this.formbuilder.group({
-            'name': ['', Validators.required],
-            'email': ['', Validators.required],
-            'user': ['', Validators.required],
-            'password': ['', Validators.required],
-            'c_password': ['', Validators.required]
+            name: ['', Validators.required],
+            email: ['', Validators.required],
+            user: ['', Validators.required],
+            password: ['', Validators.required],
+            c_password: ['', Validators.required]
         });
     }
 

@@ -1,13 +1,14 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.page.html',
-  styleUrls: ['./create-post.page.scss'],
+  selector: 'app-create',
+  templateUrl: './create.page.html',
+  styleUrls: ['./create.page.scss'],
 })
-export class CreatePostPage implements OnInit {
+export class CreatePage implements OnInit {
   ImagemPost;
 
   public createPost: FormGroup;
@@ -21,7 +22,7 @@ export class CreatePostPage implements OnInit {
    }
 
   submitPost() {
-    
+
   }
 
   openGallery() {

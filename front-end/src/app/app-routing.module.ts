@@ -4,17 +4,17 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 
     {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
     },
     {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
     },
     {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+        path: 'list',
+        loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
     },
     {
         path: 'login',
@@ -24,9 +24,18 @@ const routes: Routes = [
         path: 'register',
         loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
     },
-    { path: 'post', loadChildren: './post/post.module#PostPageModule' },
-    { path: 'create-post', loadChildren: './create-post/create-post.module#CreatePostPageModule' },
-    { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
+    {
+        path: 'post',
+        loadChildren: () => import('./post/post.module').then(m => m.PostPageModule)
+    },
+    {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+    },
+    {
+        path: 'create',
+        loadChildren: () => import('./create/create.module').then(m => m.CreatePageModule)
+    }    
 ];
 
 @NgModule({
