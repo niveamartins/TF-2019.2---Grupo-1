@@ -13,7 +13,7 @@
 
     <div class="center">
 
-        <form [formGroup]="login">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
 
             <ion-item>
                 <ion-label position="stacked" class="label">Usuário / E-mail</ion-label>

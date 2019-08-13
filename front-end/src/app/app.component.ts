@@ -23,7 +23,7 @@ export class AppComponent {
     },
     {
       title: 'Criar post',
-      url: '/create-post',
+      url: '/create',
       icon: 'list'
     },
     {
