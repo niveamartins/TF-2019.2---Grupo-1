@@ -9,16 +9,20 @@ export class WhatsNewComponent implements OnInit {
 
     homeNews = [
         {
-            'title': 'Post 1'
+            'title': 'Post 1',
+            'description': 'Descrevendo o post 1. Analisando o espaço que eu tenho.'
         },
         {
-            'title': 'Post 2'
+            'title': 'Post 2',
+            'description': 'Descrevendo o post 2. Analisando o espaço que eu tenho.'
         },
         {
-            'title': 'Post 3'
+            'title': 'Post 3',
+            'description': 'Descrevendo o post 3. Analisando o espaço que eu tenho.'
         },
         {
-            'title': 'Post 4'
+            'title': 'Post 4',
+            'description': 'Descrevendo o post 4. Analisando o espaço que eu tenho.'
         }
     ];
 
