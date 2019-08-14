@@ -17,11 +17,6 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
       title: 'Criar post',
       url: '/create',
       icon: 'list'
@@ -40,12 +35,7 @@ export class AppComponent {
         title: 'Entrar',
         url: '/login',
         icon: 'bookmark'
-    },
-      {
-          title: 'Registrar',
-          url: '/register',
-          icon: 'book'
-      }
+    }
 
 
   ];

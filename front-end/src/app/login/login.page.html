@@ -1,45 +1,39 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>
-            Login
-        </ion-title>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <a routerLink="/home">
+        <button ion-button large slot="start">
+                <ion-icon name="arrow-back" color="secondary"></ion-icon>
+        </button>
+    </a>
 
     <div class="center">
 
-<<<<<<< HEAD
-        <form [formGroup]="loginForm">
-=======
-        <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
->>>>>>> a8699e8f2c2f3284475a008410693a27eccc84c3
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)" line="none">
 
             <ion-item>
-                <ion-label position="stacked" class="label">Usuário / E-mail</ion-label>
-                <ion-input required type="text" formControlName="user"></ion-input>
+                <ion-label position="stacked" class="label">Usuário</ion-label>
+                <ion-input required type="text" formControlName="user" clearInput="true" color="secondary"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="stacked" class="label">Senha</ion-label>
-                <ion-input required type="text" formControlName="password"></ion-input>
+                <ion-input required type="password" formControlName="password" clearInput="true" color="secondary"></ion-input>
             </ion-item>
             <div class="ion-padding"></div>
 
             <div class="ion-padding">
                 <ion-row class="ion-justify-content-center">
-                    <ion-button mode="ios" shape="round" type="submit" class="ion-no-margin">Entrar</ion-button>
+                    <ion-button mode="ios" color="secondary" shape="round" type="submit" class="ion-no-margin">Entrar</ion-button>
                 </ion-row>
             </div>
 
             <div class="ion-padding">
                 <ion-row class="ion-justify-content-center ion-align-content-end">
-                    <ion-text color="secondary">Não tem conta? <ion-text routerLinkActive="active"><a routerLink="/register">Cadastre-se</a></ion-text>
-                    </ion-text>
+                    <ion-text class="text-ask">Não tem conta?</ion-text>
+                </ion-row>
+                <ion-row class="ion-justify-content-center">    
+                    <a routerLink="/register">
+                        <ion-button mode="ios" color="primary" shape="round" type="submit" class="ion-no-margin">Cadastre-se</ion-button>
+                    </a>
                 </ion-row>
             </div>
 
