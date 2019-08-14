@@ -17,7 +17,7 @@ class PassportController extends Controller
 
     // função para realizar a entrada do usuário no sistema
     public function login() {
-        if (Auth::attempt(['nickname' => request('nickname'), 'password' => request('password')])) {
+        if (Auth::attempt(['name' => request('name'), 'password' => request('password')])) {
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->accessToken;
             return response()->json(['success' => $success], $this->successStatus);
@@ -30,7 +30,7 @@ class PassportController extends Controller
     // função para cadastrar um novo usuário
     public function register(Request $request) {
         $validator = Validator::make($request -> all(), [
-            'nickname' => 'required',
+            'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'c_password' => 'required|same:password',
@@ -47,7 +47,7 @@ class PassportController extends Controller
         // linhas trocadas pois é necessário ter o usuário para se criar a sua respectiva token
         $success['token'] = $newUser->createToken('MyApp')->accessToken;
         $success['name'] = $newUser->name;
-        
+
         return response()->json(['success' => $success], $this->successStatus);
     }
 

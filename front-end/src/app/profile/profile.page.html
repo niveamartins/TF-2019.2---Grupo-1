@@ -1,31 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>profile</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-img [src]="{{ ImageUser }}"></ion-img> -->
-  <ion-text><h3>{{ Username }}</h3></ion-text>
+    <ion-img [src]="ImageUser"></ion-img>
+    <ion-text>
+        <h3>{{ Username }}</h3>
+    </ion-text>
 
-  <ion-list>
+    <ion-list>
 
-    <ion-item>
-      <ion-label>E-mail</ion-label>
-      <ion-text>{{ EmailUser }}</ion-text>
-    </ion-item>
+        <ion-item>
+            <ion-label>E-mail</ion-label>
+            <ion-text>{{ EmailUser }}</ion-text>
+        </ion-item>
 
-    <ion-item>
-      <ion-label>Meus Posts</ion-label>
-    </ion-item>
-  </ion-list>
+        <ion-item>
+            <ion-label>Meus Posts</ion-label>
+        </ion-item>
+    </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <a routerLink="/create">
-          <ion-fab-button>
-              <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-      </a>
-  </ion-fab>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <a routerLink="/create">
+            <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </a>
+    </ion-fab>
 
 </ion-content>

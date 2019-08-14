@@ -18,29 +18,22 @@ export class RegisterPage implements OnInit {
         this.registerForm = this.formbuilder.group({
             name: ['', Validators.compose([
                 Validators.minLength(4),
-                Validators.maxLength(36),
-                Validators.pattern('^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$'),
+                Validators.maxLength(16),
+                Validators.pattern('^[A-Za-z0-9]+(?:[_-][A-Za-z0-9]+)*$'),
                 Validators.required
             ])],
             email: ['', Validators.compose([
                 Validators.email,
                 Validators.required
             ])],
-            user: ['', Validators.compose([
-                Validators.minLength(4),
-                Validators.maxLength(16),
-                Validators.pattern('^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$'),
-                Validators.required
-            ])],
             password: ['', Validators.compose([
-                Validators.minLength(6),
+                Validators.minLength(8),
                 Validators.required
             ])],
             c_password: ['', Validators.compose([
-                Validators.minLength(6),
+                Validators.minLength(8),
                 Validators.required
             ])]
-
         });
     }
 

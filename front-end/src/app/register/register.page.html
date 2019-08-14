@@ -16,18 +16,13 @@
         <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
 
             <ion-item>
-                <ion-label position="stacked" class="label">Nome</ion-label>
-                <ion-input placeholder="Digite seu nome" type="text" formControlName="name"></ion-input>
+                <ion-label position="stacked" class="label">Usuário</ion-label>
+                <ion-input placeholder="Digite o nome de usuário" type="text" formControlName="name"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="stacked" class="label">E-mail</ion-label>
                 <ion-input placeholder="Digite seu e-mail" type="text" formControlName="email"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label position="stacked" class="label">Usuário</ion-label>
-                <ion-input placeholder="Digite o nome de usuário" type="text" formControlName="user"></ion-input>
             </ion-item>
 
             <ion-item>

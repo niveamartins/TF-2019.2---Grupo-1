@@ -16,7 +16,7 @@
         <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
 
             <ion-item>
-                <ion-label position="stacked" class="label">Usuário / E-mail</ion-label>
+                <ion-label position="stacked" class="label">Usuário</ion-label>
                 <ion-input type="text" formControlName="user"></ion-input>
             </ion-item>
 
@@ -39,12 +39,10 @@
                 </ion-row>
             </div>
 
-
-                <ion-row class="ion-justify-content-center ion-align-content-end">
-                    <ion-text color="secondary">Esqueceu sua senha? <ion-text>Clique aqui</ion-text>
-                    </ion-text>
-                </ion-row>
-
+            <ion-row class="ion-justify-content-center ion-align-content-end">
+                <ion-text color="secondary">Esqueceu sua senha? <ion-text>Clique aqui</ion-text>
+                </ion-text>
+            </ion-row>
 
         </form>
 
