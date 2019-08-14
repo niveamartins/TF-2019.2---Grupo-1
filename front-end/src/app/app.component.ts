@@ -19,12 +19,12 @@ export class AppComponent {
     {
       title: 'Criar post',
       url: '/create',
-      icon: 'list'
+      icon: 'add-circle'
     },
     {
       title: 'Perfil',
       url: '/profile',
-      icon: 'list'
+      icon: 'contact'
     },
     {
       title: 'Post',
@@ -39,6 +39,9 @@ export class AppComponent {
 
 
   ];
+
+  ImageUser = "";
+  Username = "";
 
   constructor(
     private platform: Platform,
