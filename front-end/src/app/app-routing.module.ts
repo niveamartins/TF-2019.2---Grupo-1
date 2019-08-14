@@ -35,7 +35,12 @@ const routes: Routes = [
     {
         path: 'create',
         loadChildren: () => import('./create/create.module').then(m => m.CreatePageModule)
-    }    
+    },
+    {
+        path: 'comment',
+        loadChildren: () => import('./comment/comment.module').then(m => m.CommentPageModule)
+    }
+
 ];
 
 @NgModule({

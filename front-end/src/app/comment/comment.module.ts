@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { Camera } from '@ionic-native/camera/ngx';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CreatePage } from './create.page';
+import { CommentPage } from './comment.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CreatePage
+    component: CommentPage
   }
 ];
 
@@ -19,11 +18,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CreatePage],
-  providers: [Camera]
+  declarations: [CommentPage]
 })
-export class CreatePageModule {}
+export class CommentPageModule {}

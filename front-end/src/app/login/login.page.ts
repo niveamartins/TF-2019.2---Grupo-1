@@ -15,8 +15,8 @@ export class LoginPage implements OnInit {
     constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router) {
 
         this.loginForm = this.formbuilder.group({
-            'user': ['', [Validators.required]],
-            'password': ['', [Validators.required]]
+            user: ['', [Validators.required]],
+            password: ['', [Validators.required]]
         });
 
     }
@@ -25,6 +25,8 @@ export class LoginPage implements OnInit {
     }
 
     loginUser(form) {
+
+        console.log(this.loginForm)
 
         if (form.status == "VALID") {
 

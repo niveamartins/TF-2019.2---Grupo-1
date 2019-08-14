@@ -16,11 +16,31 @@ export class RegisterPage implements OnInit {
     constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router) {
 
         this.registerForm = this.formbuilder.group({
-            name: ['', Validators.required],
-            email: ['', Validators.required],
-            user: ['', Validators.required],
-            password: ['', Validators.required],
-            c_password: ['', Validators.required]
+            name: ['', Validators.compose([
+                Validators.minLength(4),
+                Validators.maxLength(36),
+                Validators.pattern('^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$'),
+                Validators.required
+            ])],
+            email: ['', Validators.compose([
+                Validators.email,
+                Validators.required
+            ])],
+            user: ['', Validators.compose([
+                Validators.minLength(4),
+                Validators.maxLength(16),
+                Validators.pattern('^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$'),
+                Validators.required
+            ])],
+            password: ['', Validators.compose([
+                Validators.minLength(6),
+                Validators.required
+            ])],
+            c_password: ['', Validators.compose([
+                Validators.minLength(6),
+                Validators.required
+            ])]
+
         });
     }
 
@@ -29,12 +49,14 @@ export class RegisterPage implements OnInit {
 
     registerUser(form) {
 
+        console.log(this.registerForm);
+
         if (form.status == "VALID") {
 
             this.authservice.registerUser(form.value).subscribe(
                 (res) => {
                     console.log(res);
-                    this.router.navigate(['home']);
+                    this.router.navigate(['login']);
                 }
             );
         }
