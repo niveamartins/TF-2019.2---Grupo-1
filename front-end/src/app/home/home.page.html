@@ -17,7 +17,7 @@
         </ion-text>
     </div>
 
-    <app-whats-new></app-whats-new>
+    <app-whats-new [homeNews]="homeNews"></app-whats-new>
 
     <ion-text class="title-list" color="secondary">Caso você tenha perdido...</ion-text>
 
@@ -28,7 +28,7 @@
             </ion-thumbnail>
             <ion-label>
                 <h2>{{ homeList.title }}</h2>
-                <p>{{ homeList.subtitle }}</p>
+                <p>{{ homeList.text }}</p>
             </ion-label>
         </ion-item>
     </ion-list>

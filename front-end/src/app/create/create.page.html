@@ -10,24 +10,25 @@
 </ion-header>
 
 <ion-content>
+
     <ion-button class="button-image" size="full" (click)="openGallery()">
-         <ion-icon name="photos"></ion-icon>
-         <ion-label>Selecione a Foto</ion-label>
+        <ion-icon name="photos"></ion-icon>
+        <ion-label>Selecione a Foto</ion-label>
     </ion-button>
 
-     <form [formGroup]= "createPost" (ngSubmit)="submitPost(createPost)">
+    <form [formGroup]="createPost" (ngSubmit)="submitPost()">
 
         <ion-item>
             <ion-label class="label" position="stacked">Título do Post</ion-label>
-            <ion-input required type="text" formControlName="titulo" placeholder="Insira o título do seu post"></ion-input>
+            <ion-input type="text" formControlName="title" placeholder="Insira o título do seu post"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label class="label" position="stacked">Texto do Post</ion-label>
-            <ion-textarea autoGrow="true" formControlName="texto" placeholder="Insira o texto do seu post"></ion-textarea>
+            <ion-textarea autoGrow="true" formControlName="text" placeholder="Insira o texto do seu post"></ion-textarea>
         </ion-item>
         <ion-row>
-          <ion-button type="submit" [disabled]="!createPost.valid">Postar</ion-button>
+            <ion-button type="submit" [disabled]="!createPost.valid">Postar</ion-button>
         </ion-row>
     </form>
 

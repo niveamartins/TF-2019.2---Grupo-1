@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Post;
 
 class PostController extends Controller
 {
-    public function create(Request $request){
+    public function create(Request $request) {
 
-//$post = Auth::user();
-//if ( $user ) {
-$post = new Post;
+        $user = Auth::user();
 
-    $post->title = $request->title;
-    $post->text = $request->text;
+        if ( $user ) {
+            $post = new Post;
 
-    $file = $request->file('image');
+            $post->title = $request->title;
+            $post->text = $request->text;
+            $post->image = $request->image;
+
+    /*$file = $request->file('image');
 
     $filename = 'image.'.$file->getClientOriginalExtension();
 
@@ -30,39 +33,38 @@ $post = new Post;
                 ]);
 
                 if ($validator->fails()) {
-                return response()->json(['error' => $validator->errors()], 400);
+                    return response()->json(['error' => $validator->errors()], 400);
                 }
 
 
                 $path = $file->storeAs('localPhotos', $filename);
                 $post->image = $file;
 
-                $post->save();
 
-    // return response()->download($path, $post->image);
+    return response()->download($path, $post->image);*/
 
-
+    $post->save();
 
         return response()->json( [
             "message" => "Post criado com sucesso!",
-            //"data" => $post
+            "data" => $post
         ], 200 );
 
-//    } else {
+   } else {
 
-        //return response()->json( [
-    //        "message" => "Não autorizado!",
-        //    "data" => null
-        //], 401 );
+        return response()->json( [
+           "message" => "Não autorizado!",
+           "data" => null
+        ], 401 );
 
-    //}
+    }
 }
 
 public function edit(Request $request, $id)
 {
-    // $user = Auth::user();
+    $user = Auth::user();
 
-    // if ( $user ) {
+    if ( $user ) {
 
         $post = Post::findOrFail($id);
 
@@ -95,48 +97,48 @@ public function edit(Request $request, $id)
 
                     $post->image = $file;
                      //$post->image = $request->image;
-                }
-         $post->save();
+                     $post->save();
+            }
 
-        return response()->json(
-            [
+
+        return response()->json( [
             "message" => "Post editado com sucesso!",
-            // "data" => $post
+            "data" => $post
         ], 200 );
 
-    // } else {
-    //
-    //     return response()->json( [
-    //         "message" => "Não autorizado!",
-    //         "data" => null
-    //     ], 401 );
+    } else {
 
-    // }
+        return response()->json( [
+            "message" => "Não autorizado!",
+            "data" => null
+        ], 401 );
+
+    }
  }
 
  public function destroy($id)
  {
 
-     //$user = Auth::user();
+     $user = Auth::user();
 
-     //if ( $user ) {
+     if ( $user ) {
 
          $post = Post::find($id);
          $post->destroy($id);
 
          return response()->json( [
              "message" => "Post deletado com sucesso!",
-             //"data" => $reserva
+             "data" => $reserva
          ], 200 );
-     //
-     // } else {
-     //
-     //     return response()->json( [
-     //         "message" => "Não autorizado!",
-     //         "data" => null
-     //     ], 401 );
-     //
-     // }
+
+     } else {
+
+         return response()->json( [
+             "message" => "Não autorizado!",
+             "data" => null
+         ], 401 );
+
+     }
  }
 
 
@@ -146,35 +148,30 @@ public function edit(Request $request, $id)
 
           $post = Post::all();
           return response()->json( [
-              "message" => "Busca concluída!",
-              //"data" => $post
+              "message" => "Lista carregada!",
+              "data" => $post
           ], 200 );
 
-      // } else {
-      //
-      //     return response()->json( [
-      //         "message" => "Não autorizado!",
-      //         "data" => null
-      //     ], 401 );
-      //
-      // }
         }
 
         public function show($id){
+            $user = Auth::user();
+
+            if ( $user ) {
      $post = Post::find($id);
      return response()->json( [
          "message" => "Busca concluída!",
-         //"data" => $post
+         "data" => $post
      ], 200 );
 
- // } else {
- //
- //     return response()->json( [
- //         "message" => "Não autorizado!",
- //         "data" => null
- //     ], 401 );
- //
- // }
+ } else {
+
+     return response()->json( [
+         "message" => "Não autorizado!",
+         "data" => null
+     ], 401 );
+
+    }
 }
 
 

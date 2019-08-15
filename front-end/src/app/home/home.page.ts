@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-home',
@@ -7,25 +8,25 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-        homeLists = [
-            {
-                'title': "Título do Post",
-                'subtitle': "Descrição do Post"
-            },
-            {
-                'title': "Título do Post",
-                'subtitle': "Descrição do Post"
-            },
-            {
-                'title': "Título do Post",
-                'subtitle': "Descrição do Post"
-            },
-            {
-                'title': "Título do Post",
-                'subtitle': "Descrição do Post"
-            }
-        ]
+        homeLists: any[];
+        homeNews: any[];
 
-  constructor() {}
+  constructor(public postservice: PostService) {}
+
+  getPosts(): void {
+    this.postservice.getPosts().subscribe(
+      (res) => {
+        console.log(res);
+        this.homeLists = res.data;
+        this.homeNews = this.homeLists.slice( 0, Math.min(4, this.homeLists.length));
+        for(let homeList in this.homeLists){
+        }
+    });
+	}
+
+    ionViewDidEnter () {
+      this.getPosts();
+    }
+
 
 }

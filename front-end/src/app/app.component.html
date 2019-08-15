@@ -1,37 +1,41 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu type="overlay">
-      <ion-header >
-        <ion-toolbar color="secondary">
-          <ion-row>
-            <ion-avatar><ion-img src="{{ ImageUser }}"></ion-img></ion-avatar>
-            <ion-text><h3>{{ Username }}</h3></ion-text>
-          </ion-row>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list lines="none">
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="tertiary">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        
-        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-          <!--<a routerLink="/create">-->
-            <ion-button color="tertiary">
-                <ion-icon name="exit"></ion-icon>
-                Sair  
-            </ion-button>
-           <!--</a>-->
-        </ion-fab>
-        
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
-  </ion-split-pane>
+    <ion-split-pane>
+        <ion-menu type="overlay">
+            <ion-header>
+                <ion-toolbar color="secondary">
+                    <ion-row>
+                        <ion-avatar>
+                            <ion-img [src]="userImage"></ion-img>
+                        </ion-avatar>
+                        <ion-text>
+                            <h3>{{ userName }}</h3>
+                        </ion-text>
+                    </ion-row>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-list lines="none">
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                        <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="tertiary">
+                            <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                            <ion-label>
+                                {{p.title}}
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+
+                <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                    <!--<a routerLink="/create">-->
+                    <ion-button color="tertiary" (click)="logout()">
+                        <ion-icon name="exit"></ion-icon>
+                        Sair
+                    </ion-button>
+                    <!--</a>-->
+                </ion-fab>
+
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet main></ion-router-outlet>
+    </ion-split-pane>
 </ion-app>

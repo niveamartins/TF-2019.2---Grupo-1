@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post.page.scss'],
 })
 export class PostPage implements OnInit {
+
+    post = [
+
+    ]
   ImagemPost = '';
   TituloPost = '';
   TextoPost = '';

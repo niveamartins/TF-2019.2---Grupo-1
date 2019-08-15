@@ -7,29 +7,43 @@ import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.page.html',
-  styleUrls: ['./create.page.scss'],
+    selector: 'app-create',
+    templateUrl: './create.page.html',
+    styleUrls: ['./create.page.scss'],
 })
 export class CreatePage implements OnInit {
-  ImagemPost;
 
-  public createPost: FormGroup;
+    postImage;
+    homeNews = [];
 
-  constructor(public formbuilder: FormBuilder, public router: Router, private camera: Camera, public authservice: AuthService, public postservice: PostService) {
+    public createPost: FormGroup;
 
-    this.createPost = this.formbuilder.group({
-            'titulo': ['', Validators.required],
-            'texto': ['', Validators.required]
+    constructor(public formbuilder: FormBuilder, public router: Router, private camera: Camera, public authservice: AuthService, public postservice: PostService) {
+
+        this.createPost = this.formbuilder.group({
+
+            title: ['', Validators.required],
+            text: ['', Validators.required]
 
         });
-   }
+    }
 
-  submitPost() {
+    submitPost() {
 
-  }
+        console.log(this.createPost);
 
-  openGallery() {
+        this.postservice.createPost(/*this.postImage*/"kkkkk", this.createPost.value).subscribe(
+            (res) => {
+                console.log( res.message );
+                this.homeNews.push(res.data);
+                console.log(this.homeNews);
+                this.router.navigate(['home']);
+            });
+
+    }
+
+
+    /*openGallery() {
         const options: CameraOptions = {
             quality: 100,
             destinationType: this.camera.DestinationType.DATA_URL,
@@ -44,20 +58,10 @@ export class CreatePage implements OnInit {
             (error) => {
                 console.log(error);
             });
-    }
+    }*/
 
-    logout() {
-      this.authservice.logoutUser().subscribe(
-        (res) => {
-          console.log( res );
-          localStorage.removeItem( 'userToken' )
-          localStorage.removeItem( 'userLogged' );
-          this.router.navigate(['home']);
-        }
-      );
-    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
