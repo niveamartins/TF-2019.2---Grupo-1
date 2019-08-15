@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
             this.authservice.loginUser(form.value).subscribe(
                 (res) => {
                     console.log(res);
-                    localStorage.setItem('userToken', res.token);
+                    localStorage.setItem('userToken', res.success.token);
                     this.router.navigate(['home']);
                 }
             );
