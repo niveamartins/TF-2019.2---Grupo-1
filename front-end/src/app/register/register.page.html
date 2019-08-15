@@ -1,23 +1,17 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>
-            Cadastro
-        </ion-title>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+    <a routerLink="/login">
+        <button ion-button large slot="start">
+                <ion-icon name="arrow-back" color="secondary"></ion-icon>
+        </button>
+    </a>
     <div class="center">
 
         <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
 
+
             <ion-item>
                 <ion-label position="stacked" class="label">Usuário</ion-label>
-                <ion-input placeholder="Digite o nome de usuário" type="text" formControlName="name"></ion-input>
+                <ion-input placeholder="Digite um nome de usuário" type="text" formControlName="name"></ion-input>
             </ion-item>
 
             <ion-item>
@@ -45,7 +39,7 @@
 
             <div class="ion-padding">
                 <ion-row class="ion-justify-content-center ion-align-content-end">
-                    <ion-text color="secondary">Já tem conta? <ion-text routerLinkActive="active"><a routerLink="/login">Faça login</a></ion-text>
+                    <ion-text class="text-ask" color="secondary">Já tem conta? <ion-text routerLinkActive="active"><a class="text-ask" routerLink="/login">Faça login</a></ion-text>
                     </ion-text>
                 </ion-row>
             </div>

@@ -10,53 +10,46 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-    public appPages = [
-        {
-            title: 'Home',
-            url: '/home',
-            icon: 'home'
-        },
-        {
-            title: 'Criar post',
-            url: '/create',
-            icon: 'list'
-        },
-        {
-            title: 'Perfil',
-            url: '/profile',
-            icon: 'list'
-        },
-        {
-            title: 'Post',
-            url: '/post',
-            icon: 'list'
-        },
-        {
-            title: 'Entrar',
-            url: '/login',
-            icon: 'bookmark'
-        },
-        {
-            title: 'Registrar',
-            url: '/register',
-            icon: 'book'
-        },
-        {
-            title: 'Comentários',
-            url: '/comment',
-            icon: 'text'
-        }
+  public appPages = [
+    {
+      title: 'Home',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'Criar post',
+      url: '/create',
+      icon: 'add-circle'
+    },
+    {
+      title: 'Perfil',
+      url: '/profile',
+      icon: 'contact'
+    },
+    {
+      title: 'Post',
+      url: '/post',
+      icon: 'list'
+    },
+    {
+        title: 'Entrar',
+        url: '/login',
+        icon: 'bookmark'
+    }
 
 
     ];
 
-    constructor(
-        private platform: Platform,
-        private splashScreen: SplashScreen,
-        private statusBar: StatusBar
-    ) {
-        this.initializeApp();
-    }
+  ImageUser = "";
+  Username = "";
+
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar
+  ) {
+    this.initializeApp();
+  }
 
     initializeApp() {
         this.platform.ready().then(() => {

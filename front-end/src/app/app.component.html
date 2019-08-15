@@ -1,15 +1,18 @@
 <ion-app>
   <ion-split-pane>
     <ion-menu type="overlay">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu</ion-title>
+      <ion-header >
+        <ion-toolbar color="secondary">
+          <ion-row>
+            <ion-avatar><ion-img src="{{ ImageUser }}"></ion-img></ion-avatar>
+            <ion-text><h3>{{ Username }}</h3></ion-text>
+          </ion-row>
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <ion-list>
+        <ion-list lines="none">
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="tertiary">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
@@ -17,6 +20,16 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <!--<a routerLink="/create">-->
+            <ion-button color="tertiary">
+                <ion-icon name="exit"></ion-icon>
+                Sair  
+            </ion-button>
+           <!--</a>-->
+        </ion-fab>
+        
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>

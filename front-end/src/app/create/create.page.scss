@@ -1,0 +1,32 @@
+.button-image ion-label {
+	padding-left: 2vw;
+}
+
+.button-image {
+	height: 20vw;
+	margin-bottom: 4vh;
+}
+
+ion-textarea {
+	height: 45vh;
+}
+
+ion-item{
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: "Roboto" sans-serif;
+    margin-bottom: 3vw;
+
+}
+
+.label {
+    font-size: 1.3em;
+    margin-bottom: 3.5vw;
+}
+
+ion-row {
+	display: flex;
+	justify-content: center;
+}

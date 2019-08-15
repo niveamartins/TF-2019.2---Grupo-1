@@ -4,3 +4,36 @@
 // styles are for the entire app and not just one component. Additionally, this
 // file can hold Sass mixins, functions, and placeholder classes to be imported
 // and used throughout the application.
+
+ion-title {
+	font-weight: normal;
+}
+
+ion-menu ion-toolbar {
+	display: flex;
+	align-items: center;
+	height: 20vh;
+
+}
+
+ion-menu ion-toolbar ion-text {
+	display: flex;
+	align-items: center;
+	font-size: 1.3em;
+	font-family: "Roboto" sans-serif;
+}
+
+ion-menu ion-toolbar ion-avatar {
+	height: 12vh;
+	width: 12vh;
+	margin-left: 6vw;
+	margin-right: 4vw;
+	border-radius: 50vw;
+	border: 3px solid #038C8C;
+}
+
+.logout {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}

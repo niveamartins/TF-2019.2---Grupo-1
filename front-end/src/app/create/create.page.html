@@ -1,35 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Criar Post</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Criar Post
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!--não abre a galeria ainda-->
-  <ion-button (click)="openGallery()" shape="round">
-       <ion-icon name="photos"></ion-icon>
-       <ion-label> Selecione a Foto.</ion-label>
+    <ion-button class="button-image" size="full" (click)="openGallery()">
+         <ion-icon name="photos"></ion-icon>
+         <ion-label>Selecione a Foto</ion-label>
+    </ion-button>
 
-  </ion-button>
+     <form [formGroup]= "createPost" (ngSubmit)="submitPost(createPost)">
 
-   <form [formGroup]= "createPost" (ngSubmit)="submitPost(createPost)">
+        <ion-item>
+            <ion-label class="label" position="stacked">Título do Post</ion-label>
+            <ion-input required type="text" formControlName="titulo" placeholder="Insira o título do seu post"></ion-input>
+        </ion-item>
 
-      <ion-item>
-          <ion-label position="floating">Título do Post</ion-label>
-          <ion-input required="true" type="text" formControlName="titulo"></ion-input>
-      </ion-item>
-
-      <ion-item>
-          <ion-label position="floating">Texto do Post</ion-label>
-          <ion-textarea required="true" autoGrow="true" formControlName="texto"></ion-textarea>
-      </ion-item>
-
-      <ion-button type="submit" [disabled]="!createPost.valid">Postar</ion-button>
-
-      <ion-button color="danger" (click)="logout()"><ion-icon name="log-out"></ion-icon>Sair</ion-button>
-
-
-  </form>
+        <ion-item>
+            <ion-label class="label" position="stacked">Texto do Post</ion-label>
+            <ion-textarea autoGrow="true" formControlName="texto" placeholder="Insira o texto do seu post"></ion-textarea>
+        </ion-item>
+        <ion-row>
+          <ion-button type="submit" [disabled]="!createPost.valid">Postar</ion-button>
+        </ion-row>
+    </form>
 
 
 

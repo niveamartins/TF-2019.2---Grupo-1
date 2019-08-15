@@ -9,7 +9,14 @@ ion-thumbnail {
 }
 
 h1 {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'Roboto' sans-serif;
+    margin-left: 5vw;
+    margin-bottom: 10vw;
+    font-weight: bold;
+    font-size: 10vw;
 }
 
 a {
@@ -18,8 +25,20 @@ a {
 
 ion-item {
     height: 80px;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    border-bottom: 1px solid #E5E5E5;
 }
 
 ion-list {
     margin-left: 10px;
+}
+
+.title-list {
+    display: block;
+    font-size: 3vh;
+    font-family: 'Roboto' sans-serif;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
