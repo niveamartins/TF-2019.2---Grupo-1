@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-create',
@@ -13,7 +14,7 @@ export class CreatePage implements OnInit {
 
   public createPost: FormGroup;
 
-  constructor(public formbuilder: FormBuilder, private camera: Camera) {
+  constructor(public formbuilder: FormBuilder, private camera: Camera, public postservice: PostService) {
     this.createPost = this.formbuilder.group({
             'titulo': ['', Validators.required],
             'texto': ['', Validators.required]

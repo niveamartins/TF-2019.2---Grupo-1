@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { Camera } from '@ionic-native/camera/ngx';
+import { PostService } from '../services/post.service';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -24,6 +25,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [CreatePage],
-  providers: [Camera]
+  providers: [Camera, PostService]
 })
 export class CreatePageModule {}

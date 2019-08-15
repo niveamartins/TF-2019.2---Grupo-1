@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
     constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router) {
 
         this.loginForm = this.formbuilder.group({
-            user: ['', [Validators.required]],
+            name: ['', [Validators.required]],
             password: ['', [Validators.required]]
         });
 
@@ -32,8 +32,8 @@ export class LoginPage implements OnInit {
 
             this.authservice.loginUser(form.value).subscribe(
                 (res) => {
-                    console.log(res.message);
-                    localStorage.setItem('userToken', res.data.token);
+                    console.log(res);
+                    localStorage.setItem('userToken', res.token);
                     this.router.navigate(['home']);
                 }
             );

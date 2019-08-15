@@ -18,7 +18,7 @@ export class PostService {
 
     constructor(public http: HttpClient) { }
 
-    /*getPosts(): Observable<any> {
+    getPosts(): Observable<any> {
 
         this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem('userToken');
         return this.http.get(this.apiUrl + 'post/', this.httpHeaders);
@@ -28,7 +28,7 @@ export class PostService {
     createPost(postTitle: string, postImage: any, postText: string): Observable<any> {
 
         this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem('userToken');
-        return this.http.post(this.apiUrl + 'post',
+        return this.http.post(this.apiUrl + 'create',
             {
                 title: postTitle,
                 image: postImage,
@@ -43,6 +43,6 @@ export class PostService {
         this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem('userToken');
         return this.http.delete(this.apiUrl + 'post/' + id, this.httpHeaders);
 
-    }*/
+    }
 
 }

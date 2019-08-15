@@ -17,6 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('create', 'postController@create');
+Route::put('edit/{id}', 'postController@edit');
+Route::delete('destroy/{id}', 'postController@destroy');
+Route::get('show/{id}', 'postController@show');
+Route::get('index', 'postController@index');
+
+
+
 // rotas do Passport para as funções relativas a autenticação do usuário
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');

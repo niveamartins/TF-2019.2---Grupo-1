@@ -4,11 +4,12 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 // importações necessárias ao funcionamento da Controller do Passport
 use Auth;
 use App\User;
 use DB;
-
+use Illuminate\Support\Facades\Validator;
 class PassportController extends Controller
 {
     //
@@ -54,8 +55,7 @@ class PassportController extends Controller
     // função para recuperar informações de um usuário logado
     public function getDetails() {
         $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus); //retorna as informações do usuário
-        logado
+        return response()->json(['success' => $user], $this->successStatus); //retorna as informações do usuário logado
     }
 
     // função para editar as informações de um usuário já existente
