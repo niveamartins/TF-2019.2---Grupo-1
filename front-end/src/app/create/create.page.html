@@ -11,12 +11,13 @@
 
 <ion-content>
 
-    <ion-button class="button-image" size="full" (click)="openGallery()">
-        <ion-icon name="photos"></ion-icon>
-        <ion-label>Selecione a Foto</ion-label>
-    </ion-button>
-
     <form [formGroup]="createPost" (ngSubmit)="submitPost()">
+
+        <ion-img [src]="postImage"></ion-img>
+        <ion-button class="button-image" size="full" (click)="openGallery()">
+            <ion-icon name="photos"></ion-icon>
+            <ion-label>Selecione a Foto</ion-label>
+        </ion-button>
 
         <ion-item>
             <ion-label class="label" position="stacked">Título do Post</ion-label>

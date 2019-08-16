@@ -24,6 +24,10 @@ export class PostService {
 
     }
 
+    getPost(postId: any): Observable<any> {
+        return this.http.get(this.apiUrl + 'post/' + postId);
+    }
+
     createPost(postImage: any, createPost: any): Observable<any> {
 
         this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem('userToken');

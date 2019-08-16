@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('post', 'PostController@index');
+Route::get('post/{id}', 'PostController@show');
 
 // rotas do Passport para as funções relativas a autenticação do usuário
 Route::post('login', 'API\PassportController@login');
@@ -28,7 +29,6 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('post', 'PostController@create');
     Route::put('post/{id}', 'PostController@edit');
     Route::delete('post/{id}', 'PostController@destroy');
-    Route::get('post/{id}', 'PostController@show');
 
     Route::get('logout', 'API\PassportController@logout');
     Route::get('get-details', 'API\PassportController@getDetails');

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
     selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterPage implements OnInit {
 
     public registerForm: FormGroup;
 
-    constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router) {
+    constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router, public toastcontroller: ToastController) {
 
         this.registerForm = this.formbuilder.group({
             name: ['', Validators.compose([
@@ -40,11 +41,21 @@ export class RegisterPage implements OnInit {
     ngOnInit() {
     }
 
+    async presentToast() {
+        const toast = await this.toastcontroller.create({
+            message: "Cadastrado com sucesso!",
+            duration: 2000
+        });
+        toast.present();
+    }
+
     registerUser(form) {
 
         console.log(this.registerForm);
 
         if (form.status == "VALID") {
+
+            this.presentToast();
 
             this.authservice.registerUser(form.value).subscribe(
                 (res) => {

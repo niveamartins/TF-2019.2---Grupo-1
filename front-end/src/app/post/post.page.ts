@@ -1,31 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.page.html',
-  styleUrls: ['./post.page.scss'],
+    selector: 'app-post',
+    templateUrl: './post.page.html',
+    styleUrls: ['./post.page.scss'],
 })
 export class PostPage implements OnInit {
 
-    post = [
+    postId;
+    post;
 
-    ]
-  ImagemPost = '';
-  TituloPost = '';
-  TextoPost = '';
+    //public postService: PostService
+    constructor(public postservice: PostService, public router: Router) {
+        this.postId = this.router.getCurrentNavigation().extras;
+        }
 
-  //public postService: PostService
-  constructor( ) { }
+    getPost(): void {
+        this.postservice.getPost(this.postId).subscribe(
+            (res) => {
+                this.post = res.data;
+                console.log(res);
 
-  //getPost():void {
-  //  this.postService.getPost().subscribe(
-  //    (res) => {
-  //      console.log(res);
-  //    }
-  //  )
-  //}
-  ngOnInit() {
-    //this.getPost();
-  }
+            });
+    }
+    
+    ngOnInit() {
+        this.getPost();
+    }
 
 }

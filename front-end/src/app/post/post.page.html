@@ -2,19 +2,34 @@
 
 </ion-header>
 
-<ion-content>
-  <ion-img [src]= "ImagemPost"></ion-img>
-  <ion-text>
-    <h1>{{ TituloPost }}</h1>
-    <p>{{ TextoPost }}</p>
-  </ion-text>
+<ion-content *ngIf="post">
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <a routerLink="/create">
-          <ion-fab-button>
-              <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-      </a>
-  </ion-fab>
+    <a routerLink="/home">
+        <button ion-button large slot="start">
+            <ion-icon name="arrow-back" color="secondary"></ion-icon>
+        </button>
+    </a>
+
+    <ion-img [src]="post.image"></ion-img>
+
+    <ion-row class="ion-justify-content-center">
+        <ion-text>
+            <h1>{{ post.title }}</h1>
+        </ion-text>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+        <ion-text>
+            <p>{{ post.text}}</p>
+        </ion-text>
+    </ion-row>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <a routerLink="/create">
+            <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </a>
+    </ion-fab>
 
 </ion-content>

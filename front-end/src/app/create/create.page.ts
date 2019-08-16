@@ -32,9 +32,9 @@ export class CreatePage implements OnInit {
 
         console.log(this.createPost);
 
-        this.postservice.createPost(/*this.postImage*/"kkkkk", this.createPost.value).subscribe(
+        this.postservice.createPost(this.postImage, this.createPost.value).subscribe(
             (res) => {
-                console.log( res.message );
+                console.log(res.message);
                 this.homeNews.push(res.data);
                 console.log(this.homeNews);
                 this.router.navigate(['home']);
@@ -43,7 +43,7 @@ export class CreatePage implements OnInit {
     }
 
 
-    /*openGallery() {
+    openGallery() {
         const options: CameraOptions = {
             quality: 100,
             destinationType: this.camera.DestinationType.DATA_URL,
@@ -52,13 +52,13 @@ export class CreatePage implements OnInit {
         };
 
         this.camera.getPicture(options).then((imageData) => {
-            this.ImagemPost = 'data:image/jpeg;base64,' + imageData;
+            this.postImage = 'data:image/jpeg;base64,' + imageData;
             console.log('data:image/jpeg;base64,' + imageData);
         },
             (error) => {
                 console.log(error);
             });
-    }*/
+    }
 
 
     ngOnInit() {

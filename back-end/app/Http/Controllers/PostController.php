@@ -10,6 +10,7 @@ use App\Post;
 
 class PostController extends Controller
 {
+
     public function create(Request $request) {
 
         $user = Auth::user();
@@ -21,158 +22,149 @@ class PostController extends Controller
             $post->text = $request->text;
             $post->image = $request->image;
 
-    /*$file = $request->file('image');
+            /*$file = $request->file('image');
 
-    $filename = 'image.'.$file->getClientOriginalExtension();
+            $filename = 'image.'.$file->getClientOriginalExtension();
 
-        If (!Storage::exists('localPhotos/'))
-    			Storage::makeDirectory('localPhotos/',0775,true);
+                If (!Storage::exists('localPhotos/'))
+            			Storage::makeDirectory('localPhotos/',0775,true);
 
-                $validator = Validator::make($request->all(), [
-                'image' =>'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
-                ]);
+                        $validator = Validator::make($request->all(), [
+                        'image' =>'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
+                        ]);
 
-                if ($validator->fails()) {
-                    return response()->json(['error' => $validator->errors()], 400);
-                }
-
-
-                $path = $file->storeAs('localPhotos', $filename);
-                $post->image = $file;
+                        if ($validator->fails()) {
+                            return response()->json(['error' => $validator->errors()], 400);
+                        }
 
 
-    return response()->download($path, $post->image);*/
+                        $path = $file->storeAs('localPhotos', $filename);
+                        $post->image = $file;
 
-    $post->save();
+                        return response()->download($path, $post->image);*/
 
-        return response()->json( [
-            "message" => "Post criado com sucesso!",
-            "data" => $post
-        ], 200 );
+            $post->save();
 
-   } else {
+            return response()->json( [
+                "message" => "Post criado com sucesso!",
+                "data" => $post
+            ], 200 );
 
-        return response()->json( [
-           "message" => "Não autorizado!",
-           "data" => null
-        ], 401 );
+        } else {
 
+            return response()->json( [
+                "message" => "Não autorizado!",
+                "data" => null
+            ], 401 );
+
+        }
     }
-}
 
-public function edit(Request $request, $id)
-{
-    $user = Auth::user();
+    public function edit(Request $request, $id)
+    {
+        $user = Auth::user();
 
-    if ( $user ) {
+        if ( $user ) {
 
-        $post = Post::findOrFail($id);
+            $post = Post::findOrFail($id);
 
-        if($request->title) {
-            $post->title = $request->title;
-        }
-
-        if($request->text) {
-            $post->text = $request->text;
-        }
-
-        if($request->image){
-        $file = $request->file('image');
-
-        $filename = 'image.'.$file->getClientOriginalExtension();
-
-            If (!Storage::exists('localPhotos/'))
-        			Storage::makeDirectory('localPhotos/',0775,true);
-
-                    $validator = Validator::make($request->all(), [
-                    'image' =>'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
-                    ]);
-
-                    if ($validator->fails()) {
-                    return response()->json(['error' => $validator->errors()], 400);
-                    }
-
-
-                    $path = $file->storeAs('localPhotos', $filename);
-
-                    $post->image = $file;
-                     //$post->image = $request->image;
-                     $post->save();
+            if($request->title) {
+                $post->title = $request->title;
             }
 
+            if($request->text) {
+                $post->text = $request->text;
+            }
 
+            if($request->image){
+                $post->text = $request->text;
+
+            /*$file = $request->file('image');
+
+            $filename = 'image.'.$file->getClientOriginalExtension();
+
+                If (!Storage::exists('localPhotos/'))
+            			Storage::makeDirectory('localPhotos/',0775,true);
+
+                        $validator = Validator::make($request->all(), [
+                        'image' =>'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
+                        ]);
+
+                        if ($validator->fails()) {
+                        return response()->json(['error' => $validator->errors()], 400);
+                        }
+
+
+                        $path = $file->storeAs('localPhotos', $filename);
+
+                        $post->image = $file;
+                         //$post->image = $request->image;*/
+
+            }
+
+            $post->save();
+
+            return response()->json( [
+                "message" => "Post editado com sucesso!",
+                "data" => $post
+            ], 200 );
+
+            } else {
+
+                return response()->json( [
+                    "message" => "Não autorizado!",
+                    "data" => null
+                ], 401 );
+
+            }
+
+     }
+
+     public function destroy($id)
+     {
+
+         $user = Auth::user();
+
+         if ( $user ) {
+
+             $post = Post::find($id);
+             $post->destroy($id);
+
+             return response()->json( [
+                 "message" => "Post deletado com sucesso!",
+                 "data" => $reserva
+             ], 200 );
+
+         } else {
+
+             return response()->json( [
+                 "message" => "Não autorizado!",
+                 "data" => null
+             ], 401 );
+
+         }
+
+     }
+
+     public function index()
+     {
+
+         $post = Post::all();
+         return response()->json( [
+             "message" => "Lista carregada!",
+             "data" => $post
+         ], 200 );
+
+     }
+
+     public function show($id) {
+
+        $post = Post::find($id);
         return response()->json( [
-            "message" => "Post editado com sucesso!",
+            "message" => "Busca concluída!",
             "data" => $post
         ], 200 );
 
-    } else {
-
-        return response()->json( [
-            "message" => "Não autorizado!",
-            "data" => null
-        ], 401 );
-
     }
- }
-
- public function destroy($id)
- {
-
-     $user = Auth::user();
-
-     if ( $user ) {
-
-         $post = Post::find($id);
-         $post->destroy($id);
-
-         return response()->json( [
-             "message" => "Post deletado com sucesso!",
-             "data" => $reserva
-         ], 200 );
-
-     } else {
-
-         return response()->json( [
-             "message" => "Não autorizado!",
-             "data" => null
-         ], 401 );
-
-     }
- }
-
-
-
-     public function index()
-        {
-
-          $post = Post::all();
-          return response()->json( [
-              "message" => "Lista carregada!",
-              "data" => $post
-          ], 200 );
-
-        }
-
-        public function show($id){
-            $user = Auth::user();
-
-            if ( $user ) {
-     $post = Post::find($id);
-     return response()->json( [
-         "message" => "Busca concluída!",
-         "data" => $post
-     ], 200 );
-
- } else {
-
-     return response()->json( [
-         "message" => "Não autorizado!",
-         "data" => null
-     ], 401 );
-
-    }
-}
-
 
 }

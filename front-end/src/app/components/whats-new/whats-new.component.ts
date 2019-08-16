@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+//import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-whats-new',
@@ -8,9 +9,28 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WhatsNewComponent implements OnInit {
 
  @Input() homeNews;
+ @Output() postClicked = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(/*public toastcontroller: ToastController*/) { }
 
-  ngOnInit() {}
+  /*async presentToast() {
+      const toast = await this.toastcontroller.create({
+          message: "Logue para poder postar!",
+          duration: 2000
+      });
+      toast.present();
+  }*/
+
+  goToPost(id) {
+        this.postClicked.emit(id);        
+  }
+
+  ionViewDidLoad() {
+      console.log(this.homeNews);
+  }
+
+  ngOnInit() {
+
+  }
 
 }

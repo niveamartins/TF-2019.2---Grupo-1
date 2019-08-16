@@ -17,14 +17,14 @@
         </ion-text>
     </div>
 
-    <app-whats-new [homeNews]="homeNews"></app-whats-new>
+    <app-whats-new (postClicked)="goToPost($event)" [homeNews]="homeNews"></app-whats-new>
 
     <ion-text class="title-list" color="secondary">Caso você tenha perdido...</ion-text>
 
     <ion-list lines="none">
-        <ion-item *ngFor="let homeList of homeLists">
+        <ion-item (click)="goToPost(homeList.id)" *ngFor="let homeList of homeLists">
             <ion-thumbnail slot="start">
-                <ion-img src="https://www.woodlandtrust.org.uk/media/100078482/Sycamore01.jpg?cb=-11897985&preset=gallery-tab-main-image" alt="thumbnail do post"></ion-img>
+                <ion-img [src]="postImage" alt="thumbnail do post"></ion-img>
             </ion-thumbnail>
             <ion-label>
                 <h2>{{ homeList.title }}</h2>

@@ -22,31 +22,14 @@ export class AppComponent {
             icon: 'home'
         },
         {
-            title: 'Criar post',
-            url: '/create',
-            icon: 'add-circle'
-        },
-        {
-            title: 'Perfil',
-            url: '/profile',
-            icon: 'contact'
-        },
-        {
-            title: 'Post',
-            url: '/post',
-            icon: 'list'
-        },
-        {
             title: 'Entrar',
             url: '/login',
             icon: 'bookmark'
         }
-
-
     ];
 
-    userImage = "";
-    userName = "";
+    /*userImage = "";
+    userName = "";*/
 
     constructor(
         private platform: Platform,

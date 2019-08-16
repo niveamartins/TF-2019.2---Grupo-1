@@ -5,9 +5,9 @@
     <ion-row>
         <ion-slides pager="true" [options]="slideOpts">
             <ion-slide *ngFor="let homeNew of homeNews">
-                <ion-card>
+                <ion-card (click)="goToPost(homeNew.id)">
                     <ion-card-header>
-                        <ion-img src="https://www.woodlandtrust.org.uk/media/100078482/Sycamore01.jpg?cb=-11897985&preset=gallery-tab-main-image" alt="thumbnail do card"></ion-img>
+                        <img async="on" src="{{ homeNew.image }}" alt="thumbnail do card">
                         <ion-card-title>{{ homeNew.title }}</ion-card-title>
                     </ion-card-header>
                     <ion-card-content>
