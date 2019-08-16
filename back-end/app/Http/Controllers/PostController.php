@@ -151,7 +151,7 @@ class PostController extends Controller
 
          $post = Post::all();
          return response()->json( [
-             "message" => "Lista carregada!",
+             "message" => "Posts carregados!",
              "data" => $post
          ], 200 );
 
@@ -161,7 +161,7 @@ class PostController extends Controller
 
         $post = Post::find($id);
         return response()->json( [
-            "message" => "Busca concluída!",
+            "message" => "Post selecionado!",
             "data" => $post
         ], 200 );
 
